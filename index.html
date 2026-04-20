@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Mareike Schmitt – Digitale Visitenkarte</title>
+  <meta name="description" content="Dr. Mareike Schmitt – Single- und Beziehungscoaching | BECOMING HER">
+  <meta name="theme-color" content="#B8193E">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, #FAF8F5 0%, #F5F0F0 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      color: #2c3e50;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+      max-width: 420px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, #B8193E 0%, #C4A0A5 100%);
+      padding: 36px 32px 30px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 220px;
+      max-width: 75%;
+      height: auto;
+      margin-bottom: 12px;
+      border-radius: 12px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.9);
+      margin-top: 4px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    .card-body {
+      padding: 28px 32px 32px;
+    }
+
+    .contact-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      text-decoration: none;
+      color: #2c3e50;
+      transition: color 0.2s;
+    }
+
+    a.contact-item:hover {
+      color: #B8193E;
+    }
+
+    .contact-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #7A7044;
+    }
+
+    .contact-text {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #D4C5C8, transparent);
+      margin-bottom: 24px;
+    }
+
+    .qr-section {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .qr-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #8c8e96;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .qr-code {
+      width: 160px;
+      height: 160px;
+      border-radius: 12px;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      cursor: pointer;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #B8193E 0%, #D4546E 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(184, 25, 62, 0.3);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 20px rgba(184, 25, 62, 0.4);
+    }
+
+    .btn-secondary {
+      background: #FBF7F8;
+      color: #2c3e50;
+      border: 1px solid #E8DFE1;
+    }
+
+    .btn-secondary:hover {
+      background: #F5EDEF;
+    }
+
+    .btn-tertiary {
+      background: #F5F3EE;
+      color: #7A7044;
+      border: 1px solid #E5E1D6;
+    }
+
+    .btn-tertiary:hover {
+      background: #EDEADF;
+    }
+
+    .btn-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 0 32px 20px;
+      font-size: 11px;
+      color: #b0b0b0;
+      line-height: 1.6;
+    }
+
+    .footer a {
+      color: #9a9a9a;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover {
+      color: #B8193E;
+    }
+
+    @media (max-width: 460px) {
+      body {
+        padding: 16px 12px;
+        align-items: flex-start;
+        padding-top: 32px;
+      }
+
+      .card-header {
+        padding: 28px 24px 24px;
+      }
+
+      .card-body {
+        padding: 24px 24px 28px;
+      }
+
+      .footer {
+        padding: 0 24px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <header class="card-header">
+      <img src="assets/logo.png" alt="Dr. Mareike Schmitt – Single- und Beziehungscoaching" class="logo">
+      <p class="tagline">Ärztin &amp; Beziehungscoach &middot; BECOMING HER</p>
+    </header>
+
+    <div class="card-body">
+      <div class="contact-section">
+        <!-- Telefon -->
+        <a href="tel:+491729529946" class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span class="contact-text">+49 172 9529946</span>
+        </a>
+
+        <!-- E-Mail -->
+        <a href="mailto:kontakt@mareike-schmitt.de" class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 4-10 8L2 4"/>
+          </svg>
+          <span class="contact-text">kontakt@mareike-schmitt.de</span>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/dr.mareike.coaching/" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
+          <span class="contact-text">@dr.mareike.coaching</span>
+        </a>
+
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@dr.mareike.coaching" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+          </svg>
+          <span class="contact-text">@dr.mareike.coaching</span>
+        </a>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- QR-Code -->
+      <div class="qr-section">
+        <p class="qr-label">QR-Code scannen</p>
+        <img src="assets/qr-code.png" alt="QR-Code zur Website von Dr. Mareike Schmitt" class="qr-code">
+      </div>
+
+      <!-- Buttons -->
+      <div class="actions">
+        <!-- Primär: Terminbuchung – direkter Lead-Funnel -->
+        <a href="https://form.jotform.com/251582727874065" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <path d="M16 2v4"/>
+            <path d="M8 2v4"/>
+            <path d="M3 10h18"/>
+            <path d="m9 16 2 2 4-4"/>
+          </svg>
+          Kostenloses Erstgespräch buchen
+        </a>
+
+        <!-- Sekundär: Website -->
+        <a href="https://www.mareike-schmitt.de" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          Website besuchen
+        </a>
+
+        <!-- Tertiär: vCard Download – Messe-Gamechanger -->
+        <a href="kontakt.vcf" download="Dr_Mareike_Schmitt.vcf" class="btn btn-tertiary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+            <polyline points="17 21 17 13 7 13 7 21"/>
+            <polyline points="7 3 7 8 15 8"/>
+          </svg>
+          Kontakt speichern
+        </a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      &copy; 2026 Dr. Mareike Schmitt<br>
+      Visitenkarte von <a href="https://praxis-pro-digital.de" target="_blank" rel="noopener noreferrer">PraxisPro Digital</a>
+    </footer>
+  </main>
+</body>
+</html>
